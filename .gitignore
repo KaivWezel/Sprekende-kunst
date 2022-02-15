@@ -1,2 +1,4 @@
 notes.md
 .vscode
+.DS_Store
+.env
