@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+header {
+	width: 100%;
+	height: 3rem;
+	padding: 2rem 1rem;
+	background: black;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+header select {
+	appearance: none;
+	background: transparent;
+	padding: 0.5rem;
+	border: none;
+	color: white;
+}
+
+header select option {
+	color: black;
+}
+
+form {
+	margin: 1rem auto;
+}
+
+form .field {
+}
+
+label {
+	margin: 1rem 1rem 0;
+}
+
+input[type="text"] {
+	padding: 0.25rem 1rem;
+}
