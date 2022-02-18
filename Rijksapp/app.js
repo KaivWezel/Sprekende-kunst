@@ -1,7 +1,7 @@
 console.log("check");
 
 //URL variables
-const url = `https://www.rijksmuseum.nl/api/nl/collection?key=vnkVfTSO&involvedMaker=Rembrandt+van+Rijn`;
+const url = `https://www.rijksmuseum.nl/api/nl/collection?key=vnkVfTSO&involvedMaker=Karel+Appel`;
 const hostURL = new URL(url).hostname;
 const pathURL = new URL(url).pathname;
 const apiKey = "vnkVfTSO";
