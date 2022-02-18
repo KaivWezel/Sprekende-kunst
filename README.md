@@ -6,4 +6,4 @@
 
 Een applicatie die de kunst voor je zoekt en voordraagt.
 
-link naar [de Applicatie](KaivWezel.github.io/sprekende-kunst)
+link naar [de Applicatie](https://kaivwezel.github.io/Sprekende-kunst/)
