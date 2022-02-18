@@ -1,3 +1,12 @@
+:root {
+	--white: rgb(220, 220, 220);
+	--white-light: rgb(230, 230, 230);
+	--white-dark: rgb(200, 200, 200);
+	--black: rgb(30, 30, 30);
+	--black-light: rgb(40, 40, 40);
+	--black-dark: rgb(20, 20, 20);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -5,11 +14,15 @@
 	font-family: sans-serif;
 }
 
+body {
+	background: var(--black-dark);
+	color: var(--white);
+}
+
 header {
 	width: 100%;
 	height: 3rem;
 	padding: 2rem 1rem;
-	background: black;
 	color: white;
 	display: flex;
 	justify-content: space-between;
@@ -29,17 +42,45 @@ header select option {
 	color: black;
 }
 
-form {
-	margin: 1rem auto;
+.searchForm {
+	width: 50%;
+	margin: auto;
 }
 
-form .field {
+.searchForm h2 {
+	margin-bottom: 1rem;
 }
 
 label {
-	margin: 1rem 1rem 0;
+	display: block;
+	margin-bottom: 0.5rem;
 }
 
-input[type="text"] {
-	padding: 0.25rem 1rem;
+label + input {
+	margin-bottom: 1.5rem;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	border: none;
+	color: var(--white);
+
+	border-bottom: 1px solid var(--white);
+	background: transparent;
+}
+
+input:hover {
+	background: var(--black);
+}
+
+input:active,
+input:focus {
+	border-bottom: 1px solid orange;
+	outline: none;
+}
+
+.searchForm button {
+	padding: 0.5rem 1.5rem;
+	font-size: 1rem;
+	border: none;
+	color: var(--white);
+	background: var(--black-light);
 }
