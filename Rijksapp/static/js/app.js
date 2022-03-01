@@ -6,7 +6,11 @@ console.log("app connected");
 const searchForm = document.querySelector(".searchForm");
 const nextBtn = document.querySelector(".nextPage");
 const loader = document.querySelector(".loader");
-console.log(loader);
+
+window.addEventListener("hashchange", (e) => {
+	console.log(e.oldURL, e.newURL);
+});
+
 searchForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 	ui.renderResult();
