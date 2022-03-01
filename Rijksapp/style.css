@@ -12,6 +12,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: sans-serif;
+	scroll-behavior: smooth;
 }
 
 img {
@@ -38,16 +39,15 @@ header {
 	margin-bottom: 1rem;
 }
 
-header select {
-	appearance: none;
-	background: transparent;
-	padding: 0.5rem;
-	border: none;
-	color: white;
+nav {
+	display: flex;
+	justify-content: space-around;
 }
 
-header select option {
-	color: black;
+nav a {
+	color: var(--white-dark);
+	padding: 0.5rem 0.75rem;
+	margin: 1rem;
 }
 
 .searchForm {
