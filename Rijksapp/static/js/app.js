@@ -5,7 +5,8 @@ console.log("app connected");
 //DOM variables
 const searchForm = document.querySelector(".searchForm");
 const nextBtn = document.querySelector(".nextPage");
-
+const loader = document.querySelector(".loader");
+console.log(loader);
 searchForm.addEventListener("submit", (e) => {
 	e.preventDefault();
 	ui.renderResult();

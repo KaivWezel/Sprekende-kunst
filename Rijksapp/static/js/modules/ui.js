@@ -1,15 +1,19 @@
 import * as api from "./api.js";
 
 const results = document.querySelector("#results ul");
+const loader = document.querySelector(".loader");
 
 export const renderResult = async () => {
 	const artworks = await api.getResults();
-	console.log("results received");
+	loader.classList.add("active");
 	// Create card for each artwork
-	for (const art of artworks) {
-		const card = await createCard(art);
-		append(results, card);
+	if (artworks.length > 0) {
+		for (const art of artworks) {
+			const card = await createCard(art);
+			append(results, card);
+		}
 	}
+	loader.classList.remove("active");
 };
 
 const createCard = async (art) => {
