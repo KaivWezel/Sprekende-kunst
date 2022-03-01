@@ -17,17 +17,14 @@ export const getResults = () => {
 	const endpoint = `${hostURL}${pathURL}?key=${apiKey}&${queryURL}&s=${sort}`;
 	currentURL = endpoint;
 	// Fetch to endpoint
-	const artworks = fetch(endpoint)
+	return fetch(endpoint)
 		.then(function (res) {
 			return res.json();
 		})
 		.then(function (data) {
 			return data.artObjects;
 		});
-	return artworks;
 };
-
-export const loadMore = () => {};
 
 export const getDetails = async (art) => {
 	const endpoint = query.DetailQuery(art);
@@ -39,5 +36,5 @@ export const getDetails = async (art) => {
 		.then(function (data) {
 			return data;
 		});
-	return details;
+	return details.artObject;
 };
