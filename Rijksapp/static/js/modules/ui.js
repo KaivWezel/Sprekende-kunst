@@ -8,14 +8,9 @@ export const renderResult = async () => {
 	// Create card for each artwork
 	for (const art of artworks) {
 		const card = await createCard(art);
-		append(card);
+		append(results, card);
 	}
 };
-
-//fetcht results
-// loop over results
-// create card for result
-// Append card to list
 
 const createCard = async (art) => {
 	// Get details for card
@@ -47,7 +42,6 @@ const createCard = async (art) => {
 	return card;
 };
 
-const append = (component) => {
-	console.log("componentn", component);
-	results.appendChild(component);
+const append = (parent, component) => {
+	parent.appendChild(component);
 };
