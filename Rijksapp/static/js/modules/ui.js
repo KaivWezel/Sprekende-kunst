@@ -2,22 +2,25 @@ import * as api from "./api.js";
 
 const results = document.querySelector("#results ul");
 
-export const createList = async () => {
-	console.log("submitted form");
-	results.innerHTML = "";
-
+export const renderResult = async () => {
 	const artworks = await api.getResults();
-	console.log("results", artworks);
-	artworks.forEach((art) => {
-		createCard(art);
-	});
+	console.log("results received");
+	// Create card for each artwork
+	for (const art of artworks) {
+		const card = await createCard(art);
+		append(card);
+	}
 };
+
+//fetcht results
+// loop over results
+// create card for result
+// Append card to list
 
 const createCard = async (art) => {
 	// Get details for card
-	const item = await api.getDetails(art);
-	const details = item.artObject;
-	console.log(details);
+	const details = await api.getDetails(art);
+	console.log("got details");
 
 	// Create card element
 	const card = document.createElement("article");
@@ -38,8 +41,13 @@ const createCard = async (art) => {
 	card.appendChild(title);
 	card.appendChild(subtitle);
 	card.appendChild(description);
+	console.log("card complete");
 
 	// Append card to list
-	console.log(results);
-	results.appendChild(card);
+	return card;
+};
+
+const append = (component) => {
+	console.log("componentn", component);
+	results.appendChild(component);
 };
