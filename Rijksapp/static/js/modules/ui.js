@@ -3,6 +3,10 @@ import * as api from "./api.js";
 const results = document.querySelector("#results ul");
 const loader = document.querySelector(".loader");
 
+export const searchPage = () => {};
+export const resultsPage = () => {};
+export const aboutPage = () => {};
+
 export const renderResult = async () => {
 	const artworks = await api.getResults();
 	loader.classList.add("active");
