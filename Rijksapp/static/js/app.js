@@ -8,6 +8,8 @@ const nextBtn = document.querySelector(".nextPage");
 const loader = document.querySelector(".loader");
 
 window.addEventListener("hashchange", (e) => {
+	//filter hash from url
+	// give hash to router
 	console.log(e.oldURL, e.newURL);
 });
 
@@ -20,9 +22,3 @@ nextBtn.addEventListener("click", (e) => {
 	e.preventDefault();
 	ui.renderResult();
 });
-
-// Nextbutton pressed
-// increase pagination for api
-// fetch next results
-// create cards for next results
-//
