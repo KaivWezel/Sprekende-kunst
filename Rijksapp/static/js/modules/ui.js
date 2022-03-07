@@ -7,6 +7,12 @@ export const searchPage = () => {};
 export const resultsPage = () => {};
 export const aboutPage = () => {};
 
+export const renderPage = (hash) => {
+	const page = document.querySelector(hash);
+	console.log(page);
+	page.classList.add("activePage");
+};
+
 export const renderResult = async () => {
 	resultsList.innerHTML = "";
 	const results = await api.getResults();
