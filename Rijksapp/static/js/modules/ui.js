@@ -5,7 +5,6 @@ const loader = document.querySelector(".loader");
 
 export const renderPage = (hash) => {
 	const page = document.querySelector(hash);
-	console.log(page);
 	page.classList.add("activePage");
 };
 
@@ -22,7 +21,6 @@ export const renderNextPage = async () => {
 
 const renderList = async (results) => {
 	const artworks = results.artObjects;
-	console.log(artworks);
 	loader.classList.add("active");
 	// Create card for each artwork
 	if (artworks.length > 0) {
@@ -41,7 +39,6 @@ const renderList = async (results) => {
 const createCard = async (art) => {
 	// Get details for card
 	const details = await api.getDetails(art);
-	console.log("got details");
 
 	// Create card element
 	const card = document.createElement("article");
@@ -64,7 +61,6 @@ const createCard = async (art) => {
 	card.appendChild(title);
 	card.appendChild(subtitle);
 	card.appendChild(description);
-	console.log("card complete");
 
 	// Append card to list
 	return card;

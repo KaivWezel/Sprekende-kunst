@@ -33,9 +33,7 @@ export const getDetails = async (art) => {
 };
 
 export const nextPage = () => {
-	console.log(currentQuery.url);
 	currentQuery.page++;
-	console.log(currentQuery.page);
 	const endpoint = `${host}${path}?key=${apiKey}&p=${currentQuery.page}&${currentQuery.url}&s=${sort}`;
 	const results = request(endpoint);
 	return results;
