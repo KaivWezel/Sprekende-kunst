@@ -25,18 +25,21 @@ body {
 }
 
 h2 {
-	margin: 3rem;
+	margin: 1rem 0;
 }
 
 header {
 	width: 100%;
-	height: 3rem;
-	padding: 2rem 1rem;
+	padding: 1rem;
 	color: white;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 1rem;
+}
+
+h1 a {
+	text-decoration: none;
+	color: var(--white);
 }
 
 nav {
@@ -47,12 +50,45 @@ nav {
 nav a {
 	color: var(--white-dark);
 	padding: 0.5rem 0.75rem;
-	margin: 1rem;
+}
+
+main {
+	position: relative;
+	margin: 3rem 0;
+}
+
+section {
+	margin: 2rem 0;
+}
+
+.home {
+	display: none;
+	padding: 0 3rem;
+}
+
+.home p {
+	margin: 1rem 0;
+}
+
+.home a {
+	display: inline-block;
+	text-decoration: none;
+	padding: 1rem;
+	background: var(--white-dark);
+	color: var(--black-light);
+}
+
+.search {
+	display: none;
 }
 
 .searchForm {
 	width: 50%;
-	margin: auto;
+	margin: 0 auto;
+}
+
+.searchForm.active {
+	display: block;
 }
 
 .searchForm h2 {
@@ -104,10 +140,10 @@ button:active {
 	color: var(--black);
 }
 
-#results {
-	margin: 3rem 0;
+.results {
+	display: none;
 	text-align: center;
-	position: relative;
+	background: var(--black-dark);
 }
 
 .artCard {
@@ -169,4 +205,8 @@ button:active {
 	to {
 		transform: scale(1.3);
 	}
+}
+
+.activePage {
+	display: block;
 }
