@@ -3,10 +3,6 @@ import * as api from "./api.js";
 const resultsList = document.querySelector("#results ul");
 const loader = document.querySelector(".loader");
 
-export const searchPage = () => {};
-export const resultsPage = () => {};
-export const aboutPage = () => {};
-
 export const renderPage = (hash) => {
 	const page = document.querySelector(hash);
 	console.log(page);
