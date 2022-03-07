@@ -2,39 +2,51 @@ import * as query from "./queries.js";
 
 // URL constants
 const url = `https://www.rijksmuseum.nl/api/nl/collection?key=vnkVfTSO&involvedMaker=Karel+Appel`;
-const host = new URL(url).hostname;
-const hostURL = `https://${host}`;
-const pathURL = new URL(url).pathname;
+const host = "https://www.rijksmuseum.nl";
+const path = "/api/nl/collection";
 const apiKey = "vnkVfTSO";
 const sort = "relevance";
 
-let currentURL = "";
+const currentQuery = {
+	url: "",
+	page: 1,
+};
+
 // api functions
 export const getResults = () => {
 	// constructing query
+	currentQuery.page = 1;
 	const queryURL = query.collectionQuery();
 	// constructing endpoint useing query
-	const endpoint = `${hostURL}${pathURL}?key=${apiKey}&${queryURL}&s=${sort}`;
-	currentURL = endpoint;
+	const endpoint = `${host}${path}?key=${apiKey}&p=${currentQuery.page}&${queryURL}&s=${sort}`;
+	currentQuery.url = queryURL;
 	// Fetch to endpoint
-	return fetch(endpoint)
-		.then(function (res) {
-			return res.json();
-		})
-		.then(function (data) {
-			return data.artObjects;
-		});
+	const results = request(endpoint);
+	return results;
 };
 
 export const getDetails = async (art) => {
 	const endpoint = query.DetailQuery(art);
 	// Fetch details
-	const details = await fetch(endpoint)
-		.then(function (res) {
+	const details = await request(endpoint);
+	return details.artObject;
+};
+
+export const nextPage = () => {
+	console.log(currentQuery.url);
+	currentQuery.page++;
+	console.log(currentQuery.page);
+	const endpoint = `${host}${path}?key=${apiKey}&p=${currentQuery.page}&${currentQuery.url}&s=${sort}`;
+	const results = request(endpoint);
+	return results;
+};
+
+const request = (endpoint) => {
+	return fetch(endpoint)
+		.then((res) => {
 			return res.json();
 		})
-		.then(function (data) {
-			return data;
+		.catch((err) => {
+			console.log(err);
 		});
-	return details.artObject;
 };

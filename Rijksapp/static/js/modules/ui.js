@@ -1,6 +1,6 @@
 import * as api from "./api.js";
 
-const results = document.querySelector("#results ul");
+const resultsList = document.querySelector("#results ul");
 const loader = document.querySelector(".loader");
 
 export const searchPage = () => {};
@@ -8,14 +8,30 @@ export const resultsPage = () => {};
 export const aboutPage = () => {};
 
 export const renderResult = async () => {
-	const artworks = await api.getResults();
+	resultsList.innerHTML = "";
+	const results = await api.getResults();
+	renderList(results);
+};
+
+export const renderNextPage = async () => {
+	const results = await api.nextPage();
+	renderList(results);
+};
+
+const renderList = async (results) => {
+	const artworks = results.artObjects;
+	console.log(artworks);
 	loader.classList.add("active");
 	// Create card for each artwork
 	if (artworks.length > 0) {
 		for (const art of artworks) {
 			const card = await createCard(art);
-			append(results, card);
+			append(resultsList, card);
 		}
+	} else {
+		const errorMsg = document.createElement("h3");
+		errorMsg.innerText = "Geen resultaten gevonden";
+		append(resultsList, errorMsg);
 	}
 	loader.classList.remove("active");
 };
@@ -34,10 +50,12 @@ const createCard = async (art) => {
 	const description = document.createElement("p");
 
 	// Assign content to elements
-	image.src = art.webImage.url;
-	title.innerText = details.title;
-	subtitle.innerText = details.longTitle;
-	description.innerText = details.label.description;
+	image.src = art.webImage ? art.webImage.url : "";
+	title.innerText = details.title ? details.title : "Geen titel beschikbaar";
+	subtitle.innerText = details.longTitle ? details.longTitle : "";
+	description.innerText = details.label.description
+		? details.label.description
+		: "Geen beschrijving beschikbaar";
 
 	// Append elements to card
 	card.appendChild(image);

@@ -12,7 +12,7 @@ export const collectionQuery = () => {
 	// Declaring queryString for storage
 	let queryString = [];
 	// Reading input value
-	queries.forEach(function (query) {
+	queries.forEach((query) => {
 		if (query.value.length != 0) {
 			// Store input value in queryString
 			queryString.push(`${query.name}=${query.value}`);

@@ -20,5 +20,5 @@ searchForm.addEventListener("submit", (e) => {
 
 nextBtn.addEventListener("click", (e) => {
 	e.preventDefault();
-	ui.renderResult();
+	ui.renderNextPage();
 });
