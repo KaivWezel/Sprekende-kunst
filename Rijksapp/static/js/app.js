@@ -5,6 +5,7 @@ console.log("app connected");
 
 //DOM variables
 const searchForm = document.querySelector(".searchForm");
+const searchBtn = document.querySelector(".searchFrom a");
 const nextBtn = document.querySelector(".nextPage");
 const loader = document.querySelector(".loader");
 
@@ -15,7 +16,7 @@ window.addEventListener("hashchange", (e) => {
 
 searchForm.addEventListener("submit", (e) => {
 	e.preventDefault();
-	location.assign(location.origin + "#results");
+	window.location.hash = "results";
 	ui.renderResult();
 });
 
