@@ -50,8 +50,11 @@ const createCard = async (art) => {
 
 	// Assign content to elements
 	image.src = art.webImage ? art.webImage.url : "";
+
 	title.innerText = details.title ? details.title : "Geen titel beschikbaar";
+
 	subtitle.innerText = details.longTitle ? details.longTitle : "";
+
 	description.innerText = details.label.description
 		? details.label.description
 		: "Geen beschrijving beschikbaar";
