@@ -39,6 +39,7 @@ With the huge amount of art you can access, a long list will probably return to 
 ## Activity Diagram
 
 ![Activity Diagram](img/activityDiagramWAFS.png)
+![Activity Diagram](img/activityDiagramWAFS_modules.png)
 
 ## Rijksmuseum API
 
